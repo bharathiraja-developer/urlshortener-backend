@@ -17,6 +17,7 @@ urlRouter.post("/short", async (req, res) => {
         origUrl,
         shortUrl,
         urlId,
+        date: new Date(),
       });
 
       await Url.save();

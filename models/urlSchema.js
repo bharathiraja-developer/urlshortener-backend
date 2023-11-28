@@ -18,6 +18,10 @@ const UrlSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
+  date: {
+    type: String,
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Url", UrlSchema, "urls");
