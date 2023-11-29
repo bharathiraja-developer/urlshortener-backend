@@ -47,4 +47,9 @@ urlRouter.get("/:urlId", async (req, res) => {
   }
 });
 
+urlRouter.get("/", async (req, res) => {
+  const data = await url.find({});
+  res.status(200).json(data);
+});
+
 module.exports = urlRouter;
