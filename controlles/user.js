@@ -152,12 +152,15 @@ userRouter.put("/forget", async (request, response) => {
 });
 
 // Login
-userRouter.get("/login", async (request, response) => {
+userRouter.patch("/login", async (request, response) => {
   try {
     const { username, password } = request.body;
 
     const User = await user.findOne({ email: username });
     if (!User) {
+      return response.status(401).json({ error: "User Not found" });
+    }
+    if (!User.isActive) {
       return response.status(401).json({ error: "User Not found" });
     }
 
