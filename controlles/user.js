@@ -152,7 +152,7 @@ userRouter.put("/forget", async (request, response) => {
 });
 
 // Login
-userRouter.patch("/login", async (request, response) => {
+userRouter.put("/login", async (request, response) => {
   try {
     const { username, password } = request.body;
 
