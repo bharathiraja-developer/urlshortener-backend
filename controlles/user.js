@@ -38,7 +38,7 @@ userRouter.post("/", async (request, response) => {
     subject: "Sending Email using Node.js",
     html: `<h2>Hi!</h2> <h5>Click the link to acctivate your account : ${
       config.BASE
-    }/api/users/verify?token=${generateToken(email)} </h5>
+    }/Welcome/:${generateToken(email)} </h5>
     <p>Link is only valid for 10 mins</p>`,
   };
   transporter.sendMail(mailConfigurations, function (error, info) {
@@ -111,7 +111,7 @@ userRouter.patch("/:email", async (request, response) => {
     subject: "Sending Email using Node.js",
     html: `<h2>Hi!</h2> <h5>Click the link to acctivate your account : ${
       config.BASE
-    }/api/users/forget?token=${generateTokenForget(email)} </h5>
+    }/Reset/:${generateTokenForget(email)} </h5>
     <p>Link is only valid for 10 mins</p>`,
   };
   await User.updateOne({
